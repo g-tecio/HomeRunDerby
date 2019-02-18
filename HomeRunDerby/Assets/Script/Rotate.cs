@@ -81,7 +81,7 @@ public class Rotate : MonoBehaviour
  
                  //If the current angle is greater than the origin angle then decrease it's value
                  if (currentAngle > originAngle) {
-                     target.Rotate (0, 0, -rotSpeed);
+                     target.Rotate (0, 0, -rotSpeed) ;
                  } 
                  //Or if the current angle is less than origin angle then increase it's value
                  else if (currentAngle < originAngle) {
@@ -102,9 +102,9 @@ public class Rotate : MonoBehaviour
          if (col.gameObject.tag == "ball" && currentAngle < 0.0)
          {
             col.rigidbody.AddForce(new Vector2(0,0), ForceMode2D.Impulse);
-         } else if (currentAngle > 10.00)
+         } else if (currentAngle > 15.00)
          {
-              col.rigidbody.AddForce(new Vector2(0,30), ForceMode2D.Impulse);
+              col.rigidbody.AddForce(new Vector2(0,20), ForceMode2D.Impulse);
          }
      }
      

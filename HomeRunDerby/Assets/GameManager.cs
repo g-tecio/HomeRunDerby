@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject PanelGame, PanelMainMenu, currentScore, heart1, heart2, heart3;
+    public GameObject PanelGame, PanelMainMenu,PanelGameOver, currentScore, heart1, heart2, heart3;
     public static int health;
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,9 @@ public class GameManager : MonoBehaviour
 			heart1.gameObject.SetActive(false);
 			heart2.gameObject.SetActive(false);
 			heart3.gameObject.SetActive(false);
-			
+			PanelGameOver.SetActive(true);
+			currentScore.SetActive(true);
+			PanelGame.SetActive(false);
 			Time.timeScale = 1;
 			break;
 			
@@ -54,9 +57,12 @@ public class GameManager : MonoBehaviour
         PanelMainMenu.SetActive(false);
         PanelGame.SetActive(true);
         currentScore.SetActive(true);
-        
-
     }
+
+	public void RestartGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 
     
 }
